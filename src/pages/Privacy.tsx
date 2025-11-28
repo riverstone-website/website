@@ -36,8 +36,11 @@ const Privacy = () => {
             <h2 className="text-2xl font-semibold mb-4 text-primary">Contact Us</h2>
             <p>
               If you have any questions about this Privacy Policy, please contact us at{" "}
-              <a href="mailto:info@midartsbengaluru.com" className="text-accent hover:underline">
-                info@midartsbengaluru.com
+              <a
+                href="mailto:sourav@riverstonegardendecor.com"
+                className="text-accent hover:underline"
+              >
+                sourav@riverstonegardendecor.com
               </a>
             </p>
           </section>

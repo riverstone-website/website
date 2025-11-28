@@ -31,7 +31,9 @@ const Contact = () => {
                 <Phone className="h-6 w-6 text-accent mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-muted-foreground">+91 80882 81908</p>
+                  <a href="tel:+918088281908" className="text-muted-foreground hover:text-accent">
+                    +91 80882 81908
+                  </a>
                 </div>
               </div>
 
@@ -39,7 +41,12 @@ const Contact = () => {
                 <Mail className="h-6 w-6 text-accent mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-muted-foreground">info@midearts.com</p>
+                  <a
+                    href="mailto:sourav@riverstonegardendecor.com"
+                    className="text-muted-foreground hover:text-accent break-all"
+                  >
+                    sourav@riverstonegardendecor.com
+                  </a>
                 </div>
               </div>
 
@@ -57,7 +64,12 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-secondary p-8 rounded-lg">
-            <form className="space-y-6">
+            <form
+              className="space-y-6"
+              action="mailto:sourav@riverstonegardendecor.com"
+              method="POST"
+              encType="text/plain"
+            >
               <div>
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" placeholder="Your name" className="mt-2" />

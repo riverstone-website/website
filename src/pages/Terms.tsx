@@ -44,8 +44,11 @@ const Terms = () => {
             <h2 className="text-2xl font-semibold mb-4 text-primary">Contact Information</h2>
             <p>
               For any questions regarding these terms, please contact us at{" "}
-              <a href="mailto:info@midartsbengaluru.com" className="text-accent hover:underline">
-                info@midartsbengaluru.com
+              <a
+                href="mailto:sourav@riverstonegardendecor.com"
+                className="text-accent hover:underline"
+              >
+                sourav@riverstonegardendecor.com
               </a>
             </p>
           </section>

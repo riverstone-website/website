@@ -201,8 +201,10 @@ const ConnectSection = () => {
   // CONTACT CONTENT - Edit contact details here
   const contactContent = {
     title: "Connect With Us",
-    description: "Ready to transform your space with our beautiful fiberglass planters? Get in touch with us today!",
+    description:
+      "Ready to transform your space with our beautiful fiberglass planters? Get in touch with us today!",
     phoneNumber: "+918088281908",
+    whatsappLink: "https://wa.me/918088281908",
   };
 
   return (
@@ -212,10 +214,10 @@ const ConnectSection = () => {
         <p className="text-lg mb-8 opacity-90">{contactContent.description}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" variant="secondary" className="gap-2">
-            <Link to="/contact">
+            <a href={contactContent.whatsappLink} target="_blank" rel="noreferrer">
               <Mail className="h-5 w-5" />
               Contact Us
-            </Link>
+            </a>
           </Button>
           <Button asChild size="lg" className="bg-accent hover:bg-accent/90 gap-2">
             <a href={`tel:${contactContent.phoneNumber}`}>

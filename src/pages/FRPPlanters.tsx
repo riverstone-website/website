@@ -1,58 +1,27 @@
-// ============================================
-// IMPORTS
-// ============================================
+import { useMemo, useState } from "react";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-// ============================================
-// IMAGES - ADD YOUR PRODUCT IMAGES HERE
-// ============================================
-// Step 1: Add your image files to src/assets folder
-// Step 2: Uncomment the lines below and add your image names:
-// import { heroPlanters, frpProduct1, frpProduct2, frpProduct3 } from '@/assets/images';
-
-// For now using placeholder until you add your images
-import { heroPlanters } from '@/assets/images';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { galleryCategories } from "@/data/galleryData";
 
 // ============================================
 // FRP PLANTERS PAGE COMPONENT
 // ============================================
 const FRPPlanters = () => {
-  // ============================================
-  // PRODUCT DATA - UPDATE WITH YOUR DETAILS
-  // ============================================
-  // After adding images to src/assets/images.ts, update the image property below
-  const products = [
-    {
-      id: 1,
-      title: "FRP 1",
-      sku: "MIDFRP001",
-      sizes: "1",
-      dimensions: ['Height: XX"', 'Diameter: XX"'],
-      colors: "Available in more than 2000 Colors",
-      image: heroPlanters, // Change to: frpProduct1 after importing
-    },
-    {
-      id: 2,
-      title: "Product Name 2",
-      sku: "MIDFRP002",
-      sizes: "1",
-      dimensions: ['Height: XX"', 'Diameter: XX"'],
-      colors: "Available in more than 2000 Colors",
-      image: "/placeholder.svg", // Change to: frpProduct2 after importing
-    },
-    {
-      id: 3,
-      title: "Product Name 3",
-      sku: "MIDFRP003",
-      sizes: "1",
-      dimensions: ['Height: XX"', 'Diameter: XX"'],
-      colors: "Available in more than 2000 Colors",
-      image: "/placeholder.svg", // Change to: frpProduct3 after importing
-    },
-  ];
+  const productCategories = useMemo(
+    () =>
+      galleryCategories.filter(
+        (category) => category.key !== "gallery" && category.images.length > 0
+      ),
+    []
+  );
+
+  const [activeCategoryKey, setActiveCategoryKey] = useState<string | undefined>(
+    productCategories[0]?.key
+  );
 
   const features = [
     {
@@ -92,51 +61,64 @@ const FRPPlanters = () => {
 
         {/* Products Section */}
         <section className="py-8 mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary text-center">Our Products</h2>
-          <div className="space-y-24">
-            {products.map((product, index) => (
-              <div
-                key={product.id}
-                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 items-center bg-primary/5 rounded-lg overflow-hidden`}
-              >
-                {/* Product Image */}
-                <div className="w-full lg:w-1/2 bg-muted aspect-[4/3] flex items-center justify-center">
-                  <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
-                </div>
-
-                {/* Product Details */}
-                <div className="w-full lg:w-1/2 p-8 lg:p-12 space-y-6">
-                  <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary uppercase tracking-wide">
-                    {product.title}
-                  </h3>
-
-                  <div className="space-y-3 text-foreground/80">
-                    <p className="text-lg">
-                      <span className="font-semibold text-primary">SKU:</span> {product.sku}
-                    </p>
-                    <p className="text-lg">
-                      <span className="font-semibold text-primary">Available Sizes:</span> {product.sizes}
-                    </p>
-
-                    <div className="pt-2">
-                      <p className="text-lg font-semibold text-primary mb-2">Dimensions:</p>
-                      <ul className="space-y-2 pl-5">
-                        {product.dimensions.map((dimension, idx) => (
-                          <li key={idx} className="text-base list-disc">
-                            {dimension}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <p className="text-base pt-2">
-                      <span className="font-semibold text-accent">•</span> {product.colors}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">Our Products</h2>
           </div>
+
+          {productCategories.length > 0 && (
+            <>
+              <div className="flex flex-wrap gap-3 justify-center mb-10">
+                {productCategories.map((category) => (
+                  <button
+                    key={category.key}
+                    type="button"
+                    onClick={() => setActiveCategoryKey(category.key)}
+                    className={`px-4 py-2 rounded-full border text-sm font-medium transition-colors ${
+                      category.key === activeCategoryKey
+                        ? "bg-primary text-white border-primary"
+                        : "bg-background text-primary border-primary/30 hover:bg-primary/10"
+                    }`}
+                  >
+                    {category.label}
+                  </button>
+                ))}
+              </div>
+
+              {productCategories
+                .filter((category) => category.key === activeCategoryKey)
+                .map((category) => (
+                  <div key={category.key} className="space-y-8">
+                    <div className="text-center">
+                      <p className="text-xl font-serif font-bold text-primary">{category.label}</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {category.images.map((image, index) => (
+                        <Card
+                          key={`${category.key}-${image.src}`}
+                          className="overflow-hidden border-2 border-border/60 flex flex-col"
+                        >
+                          <div className="aspect-square bg-muted">
+                            <img
+                              src={image.src}
+                              alt={`${category.label} ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <CardContent className="mt-auto p-4">
+                            <Button asChild className="w-full">
+                              <a href="https://wa.me/918088281908" target="_blank" rel="noreferrer">
+                                Interested? Contact us
+                              </a>
+                            </Button>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </>
+          )}
         </section>
 
         {/* FRP Features Section */}

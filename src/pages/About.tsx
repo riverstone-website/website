@@ -163,7 +163,9 @@ const About = () => {
               </div>
               <div>
                 <p className="font-semibold text-primary mb-2">📞 Contact:</p>
-                <p>+91 80882 81908</p>
+                <a href="tel:+918088281908" className="hover:underline">
+                  +91 80882 81908
+                </a>
               </div>
               <p className="text-accent font-semibold text-lg pt-4">
                 🌿 Riverstone Garden Decor – Let Your Plants Live in Style!

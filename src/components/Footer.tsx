@@ -49,12 +49,11 @@ const Footer = () => {
             <div className="flex items-center justify-center md:justify-start gap-3 flex-wrap">
               <Mail className="h-5 w-5 text-accent" />
               <div className="flex gap-3 flex-wrap justify-center">
-                <a href="mailto:sales@midartsbengaluru.com" className="text-sm hover:text-accent transition-colors">
-                  sales@riverstonebengaluru.com
-                </a>
-                <span className="text-sm">|</span>
-                <a href="mailto:info@midartsbengaluru.com" className="text-sm hover:text-accent transition-colors">
-                  info@riverstone.com
+                <a
+                  href="mailto:sourav@riverstonegardendecor.com"
+                  className="text-sm hover:text-accent transition-colors"
+                >
+                  sourav@riverstonegardendecor.com
                 </a>
               </div>
             </div>
