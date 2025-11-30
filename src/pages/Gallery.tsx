@@ -23,16 +23,10 @@ const Gallery = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <Header />
-      <main className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Gallery</h1>
-          <p className="text-lg text-muted-foreground mb-6">
-            Explore every single image drop we maintain. Start with the main gallery dump or switch to the exact folder
-            you want—bowls, cylinders, murals, rectangles, urns, waterfalls, and more.
-          </p>
-        </div>
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary">Gallery</h1>
 
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
+        <div className="sticky top-[120px] z-30 bg-background py-4 flex flex-wrap gap-3 justify-center mb-10 border-b border-border shadow-sm">
           {categories.map((category) => (
             <button
               key={category.key}
@@ -55,23 +49,22 @@ const Gallery = () => {
 
         {activeCategory && (
           <div className="space-y-4">
-            <div className="text-center">
-              <p className="text-xl font-semibold text-primary">{activeCategory.label}</p>
-              <p className="text-sm text-muted-foreground">
-                Showing {activeCategory.images.length} image
-                {activeCategory.images.length === 1 ? "" : "s"} from the {activeCategory.label} folder.
-              </p>
-            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {activeCategory.images.map((image) => (
                 <div
                   key={image.src}
-                  className="flex flex-col bg-secondary rounded-lg overflow-hidden border border-border/60"
+                  className="flex flex-col bg-secondary rounded-lg overflow-hidden border border-border/60 h-full"
                 >
-                  <div className="aspect-square bg-background">
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <div className="aspect-square bg-background relative overflow-hidden w-full">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt} 
+                      className="w-full h-full object-cover object-center" 
+                      loading="lazy"
+                      style={{ minHeight: '100%', minWidth: '100%' }}
+                    />
                   </div>
-                  <div className="p-4">
+                  <div className="p-4 flex-shrink-0">
                     <a
                       href="https://wa.me/918088281908"
                       target="_blank"

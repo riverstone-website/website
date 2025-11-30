@@ -40,17 +40,18 @@ const FAQs = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <Header />
-      <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary">Frequently Asked Questions</h1>
-        
-        <div className="max-w-3xl">
-          <Accordion type="single" collapsible className="w-full">
+      <main className="container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-primary">Frequently Asked Questions</h1>
+          <p className="text-xl text-accent mb-12">Find answers to common questions about our fiberglass planters</p>
+
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-lg font-semibold">
+              <AccordionItem key={index} value={`item-${index}`} className="bg-card border border-border rounded-lg px-6 data-[state=open]:shadow-md transition-shadow">
+                <AccordionTrigger className="text-left text-lg font-semibold text-primary hover:text-accent py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base">
+                <AccordionContent className="text-foreground/80 text-base leading-relaxed pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

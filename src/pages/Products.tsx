@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 import { galleryCategories } from "@/data/galleryData";
 
 // ============================================
-// FRP PLANTERS PAGE COMPONENT
+// PRODUCTS PAGE COMPONENT
 // ============================================
-const FRPPlanters = () => {
+const Products = () => {
   const productCategories = useMemo(
     () =>
       galleryCategories.filter(
@@ -56,18 +56,14 @@ const FRPPlanters = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <Header />
-      <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-12 text-primary">FRP Planters</h1>
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary">Products</h1>
 
         {/* Products Section */}
-        <section className="py-8 mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">Our Products</h2>
-          </div>
-
+        <section className="mb-20">
           {productCategories.length > 0 && (
             <>
-              <div className="flex flex-wrap gap-3 justify-center mb-10">
+              <div className="sticky top-[120px] z-30 bg-background py-4 flex flex-wrap gap-3 justify-center mb-10 border-b border-border shadow-sm">
                 {productCategories.map((category) => (
                   <button
                     key={category.key}
@@ -95,17 +91,18 @@ const FRPPlanters = () => {
                       {category.images.map((image, index) => (
                         <Card
                           key={`${category.key}-${image.src}`}
-                          className="overflow-hidden border-2 border-border/60 flex flex-col"
+                          className="overflow-hidden border-2 border-border/60 flex flex-col h-full"
                         >
-                          <div className="aspect-square bg-muted">
+                          <div className="w-full h-96 bg-muted flex items-center justify-center p-0">
                             <img
                               src={image.src}
                               alt={`${category.label} ${index + 1}`}
                               className="w-full h-full object-cover"
                               loading="lazy"
+                              style={{ objectFit: 'cover' }}
                             />
                           </div>
-                          <CardContent className="mt-auto p-4">
+                          <CardContent className="mt-auto p-4 flex-shrink-0">
                             <Button asChild className="w-full">
                               <a href="https://wa.me/918088281908" target="_blank" rel="noreferrer">
                                 Interested? Contact us
@@ -150,4 +147,4 @@ const FRPPlanters = () => {
   );
 };
 
-export default FRPPlanters;
+export default Products;

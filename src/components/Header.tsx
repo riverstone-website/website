@@ -16,10 +16,9 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About us", path: "/about" },
-    { name: "FRP Planters", path: "/frp-planters" },
-    { name: "About Fiberglass Planters", path: "/about-fiberglass" },
+    { name: "Products", path: "/products" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Why Choose Us", path: "/why-choose-us" },
   ];
 
   return (
@@ -57,22 +56,16 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-popover">
                 <DropdownMenuItem asChild>
+                  <Link to="/" className="cursor-pointer">Home</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/about-fiberglass" className="cursor-pointer">About Fiberglass Planters</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link to="/warranty" className="cursor-pointer">Warranty & Care</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/faqs" className="cursor-pointer">FAQs</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/career" className="cursor-pointer">Career</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/gallery" className="cursor-pointer">Gallery</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/blog" className="cursor-pointer">Blog</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/client-stories" className="cursor-pointer">Client Stories</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/contact" className="cursor-pointer">Contact</Link>
@@ -107,55 +100,43 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/warranty"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Warranty & Care
-            </Link>
-            <Link
-              to="/faqs"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              FAQs
-            </Link>
-            <Link
-              to="/career"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Career
-            </Link>
-            <Link
-              to="/gallery"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link
-              to="/blog"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link
-              to="/client-stories"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Client Stories
-            </Link>
-            <Link
-              to="/contact"
-              className="block py-2 text-sm font-medium text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            <div className="border-t border-border my-2 pt-2">
+              <Link
+                to="/"
+                className="block py-2 text-sm font-medium text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                to="/about-fiberglass"
+                className="block py-2 text-sm font-medium text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About Fiberglass Planters
+              </Link>
+              <Link
+                to="/warranty"
+                className="block py-2 text-sm font-medium text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Warranty & Care
+              </Link>
+              <Link
+                to="/faqs"
+                className="block py-2 text-sm font-medium text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                FAQs
+              </Link>
+              <Link
+                to="/contact"
+                className="block py-2 text-sm font-medium text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </div>
           </nav>
         )}
       </div>

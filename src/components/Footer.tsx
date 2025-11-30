@@ -4,14 +4,12 @@ import { Mail, Phone, MapPin } from "lucide-react";
 const Footer = () => {
   const navigationLinks = [
     { name: "Home", path: "/" },
-    { name: "About us", path: "/about" },
-    { name: "FRP Planters", path: "/frp-planters" },
+    { name: "Products", path: "/products" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Why Choose Us", path: "/why-choose-us" },
     { name: "About Fiberglass Planters", path: "/about-fiberglass" },
     { name: "Warranty & Care", path: "/warranty" },
     { name: "FAQs", path: "/faqs" },
-    { name: "Career", path: "/career" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
     { name: "Privacy Policy", path: "/privacy" },
     { name: "Terms and Conditions", path: "/terms" },
@@ -80,7 +78,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/20">
         <div className="container mx-auto px-4 py-6">
           <p className="text-center text-sm opacity-80">
-            Copyright © 2023 Riverstone Garden Decor - All Rights Reserved.
+            Copyright © 2025 Riverstone Garden Decor - All Rights Reserved.
           </p>
         </div>
       </div>

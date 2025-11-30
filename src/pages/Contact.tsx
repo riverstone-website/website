@@ -12,50 +12,54 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <TopBar />
       <Header />
-      <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-primary">Contact Us</h1>
+      <main className="container mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-primary">Contact Us</h1>
+          <p className="text-xl text-accent mb-12">Get in touch with us for any inquiries about our products</p>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div>
-              <h2 className="text-2xl font-semibold mb-6 text-primary">Get in Touch</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Have questions about our fiberglass planters? We'd love to hear from you. 
+            <div className="bg-card p-8 rounded-lg border border-border">
+              <h2 className="text-3xl font-bold mb-6 text-primary">Get in Touch</h2>
+              <p className="text-lg text-foreground/90 mb-8 leading-relaxed">
+                Have questions about our fiberglass planters? We'd love to hear from you.
                 Send us a message and we'll respond as soon as possible.
               </p>
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <Phone className="h-6 w-6 text-accent mt-1" />
+              <div className="bg-card p-6 rounded-lg border-l-4 border-accent flex items-start gap-4">
+                <Phone className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
-                  <a href="tel:+918088281908" className="text-muted-foreground hover:text-accent">
+                  <h3 className="font-semibold text-lg mb-2 text-primary">Phone</h3>
+                  <a href="tel:+918088281908" className="text-foreground/80 hover:text-accent transition-colors text-lg">
                     +91 80882 81908
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <Mail className="h-6 w-6 text-accent mt-1" />
+              <div className="bg-card p-6 rounded-lg border-l-4 border-accent flex items-start gap-4">
+                <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-primary">Email</h3>
                   <a
                     href="mailto:sourav@riverstonegardendecor.com"
-                    className="text-muted-foreground hover:text-accent break-all"
+                    className="text-foreground/80 hover:text-accent transition-colors break-all"
                   >
                     sourav@riverstonegardendecor.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <MapPin className="h-6 w-6 text-accent mt-1" />
+              <div className="bg-card p-6 rounded-lg border-l-4 border-accent flex items-start gap-4">
+                <MapPin className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">Address</h3>
-                  <p className="text-muted-foreground">
-                    Visit our showroom to see our collection
+                  <h3 className="font-semibold text-lg mb-2 text-primary">Visit Our Showroom</h3>
+                  <p className="text-foreground/80 leading-relaxed">
+                    169/6, Near HP Petrol Pump, Hennur Bagalur Main Road<br />
+                    Bidarahalli Hobli, Kannur Village<br />
+                    Bangalore – 560077, Karnataka, India
                   </p>
                 </div>
               </div>
@@ -63,7 +67,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-secondary p-8 rounded-lg">
+          <div className="bg-muted/30 p-8 rounded-lg border border-border">
             <form
               className="space-y-6"
               action="mailto:sourav@riverstonegardendecor.com"
@@ -94,11 +98,12 @@ const Contact = () => {
                 />
               </div>
 
-              <Button className="w-full bg-accent hover:bg-accent/90">
+              <Button className="w-full bg-accent hover:bg-accent/90 text-lg py-6">
                 Send Message
               </Button>
             </form>
           </div>
+        </div>
         </div>
       </main>
       <Footer />
