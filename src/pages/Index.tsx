@@ -10,7 +10,18 @@ import { Sparkles, Package, Wrench, Phone, Mail } from "lucide-react";
 // ============================================
 // IMAGE IMPORTS - All images in one place
 // ============================================
-import heroImage from "@/assets/hero-planters.jpg";
+// Helper function to encode image paths with spaces
+const encodeImagePath = (path: string) => path.replace(/ /g, "%20");
+
+// Home page slider images
+const sliderImage1 = encodeImagePath("/images/home page/main1.jpg");
+const sliderImage2 = encodeImagePath("/images/home page/main2.jpg");
+const sliderImage3 = encodeImagePath("/images/home page/main3.jpg");
+
+// Home page feature section images
+const featureImage1 = encodeImagePath("/images/home page/1.jpg");
+const featureImage2 = encodeImagePath("/images/home page/2.jpg");
+const featureImage3 = encodeImagePath("/images/home page/3.jpg");
 
 // ============================================
 // HOME PAGE - All content in one file
@@ -24,7 +35,7 @@ const Index = () => {
       <AboutIntroSection />
       <FeaturesSection />
       <ConnectSection />
-      <ClientsSection />
+      {/* <ClientsSection /> */}
       <Footer />
     </div>
   );
@@ -36,8 +47,8 @@ const Index = () => {
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // HERO SLIDER IMAGES - Add more images to this array
-  const images = [heroImage, heroImage, heroImage];
+  // HERO SLIDER IMAGES - Using 3 main images from home page folder
+  const images = [sliderImage1, sliderImage2, sliderImage3];
 
   // Auto-advance slides every 5 seconds
   useEffect(() => {
@@ -54,30 +65,48 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[600px] md:h-[700px] overflow-hidden">
+    <section className="relative h-[95vh] min-h-[800px] overflow-hidden bg-gray-100">
       {/* Background Images with Slider */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-center justify-start">
         {images.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? "opacity-100 z-0" : "opacity-0 z-0"
             }`}
-            style={{ backgroundImage: `url(${img})` }}
-          />
+          >
+            <img
+              src={img}
+              alt={`Hero slide ${index + 1}`}
+              className="w-full h-full"
+              style={{
+                display: 'block',
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                bottom: '0',
+                right: '0',
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          </div>
         ))}
       </div>
 
-      {/* Dark Overlay for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/70 to-primary/60" />
+      {/* Lighter overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/20 z-10" />
 
-      {/* Hero Content */}
-      <div className="relative container mx-auto px-4 h-full flex items-center">
+      {/* Hero Content - Always on top */}
+      <div className="relative container mx-auto px-4 h-full flex items-center z-20">
         <div className="max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
             {heroContent.headline}
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 font-medium">{heroContent.tagline}</p>
+          <p className="text-xl md:text-2xl text-white/95 font-medium drop-shadow-md">{heroContent.tagline}</p>
 
           {/* Slider Indicators */}
           <div className="flex gap-2 mt-8">
@@ -85,7 +114,7 @@ const HeroSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`h-1 rounded-full transition-all ${
+                className={`h-1 rounded-full transition-all z-30 relative ${
                   currentSlide === index ? "w-12 bg-accent" : "w-8 bg-white/40 hover:bg-white/60"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -128,24 +157,24 @@ const FeaturesSection = () => {
   const features = [
     {
       icon: Sparkles,
-      title: "Riverstone Products are D",
+      title: "Riverstone Products are Dynamic",
       description:
         "Our great passion is the development of new, beautiful planter shapes and innovative items that impress with their uniqueness. This results in truly unique pieces for your locations.",
-      imagePlaceholder: "unique-products",
+      image: featureImage1,
     },
     {
       icon: Package,
       title: "Discover Endless variety",
       description:
         "Our product range now a wide variety of products. We are constantly expanding our range with new shapes, colors and surfaces so that you have a large selection and can always find the right item.",
-      imagePlaceholder: "diversity",
+      image: featureImage2,
     },
     {
       icon: Wrench,
       title: "Tailored To Your Vison",
       description:
         "Custom-made FRP planter boxes can be a great solution for a variety of landscaping and gardening needs. We make customized solutions, allowing customers to get planter boxes that perfectly suit their specific requirements in terms of size, shape, color, and style.",
-      imagePlaceholder: "tailored-design",
+      image: featureImage3,
     },
   ];
 
@@ -160,15 +189,16 @@ const FeaturesSection = () => {
                 key={feature.title}
                 className="border-2 hover:border-accent transition-all hover:shadow-lg overflow-hidden"
               >
-                {/* Image Placeholder - Replace with actual images */}
-                <div className="aspect-video bg-muted relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                    <div className="text-center">
-                      <Icon className="h-16 w-16 text-muted-foreground/40 mx-auto mb-2" />
-                      <span className="text-xs text-muted-foreground/60 uppercase tracking-wider">
-                        Image Placeholder
-                      </span>
-                    </div>
+                {/* Feature Image */}
+                <div className="h-[32rem] bg-muted/30 relative overflow-hidden group w-full">
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      style={{ objectFit: 'cover' }}
+                    />
                   </div>
                 </div>
 
@@ -186,9 +216,7 @@ const FeaturesSection = () => {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <h3 className="text-2xl font-semibold text-primary mb-4">FRP Planters Manfucatures in Bangalore</h3>
-        </div>
+        
       </div>
     </section>
   );
@@ -234,6 +262,8 @@ const ConnectSection = () => {
 // ============================================
 // CLIENTS SECTION - Client logos/names
 // ============================================
+// COMMENTED OUT - Client section is hidden but code remains for future use
+/*
 const ClientsSection = () => {
   // CLIENTS LIST - Edit client names here, add logo paths when available
   const clients = [
@@ -275,5 +305,6 @@ const ClientsSection = () => {
     </section>
   );
 };
+*/
 
 export default Index;
