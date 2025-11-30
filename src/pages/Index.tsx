@@ -65,7 +65,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[60vh] min-h-[500px] md:h-[80vh] md:min-h-[700px] lg:h-[95vh] lg:min-h-[800px] overflow-hidden bg-gray-100">
+    <section className="relative h-[60vh] min-h-[500px] md:h-[80vh] md:min-h-[700px] lg:h-[95vh] lg:min-h-[800px] overflow-hidden bg-gray-100 -mt-20 md:mt-0 pt-20 md:pt-0">
       {/* Background Images with Slider */}
       <div className="absolute inset-0 flex items-center justify-start">
         {images.map((img, index) => (
