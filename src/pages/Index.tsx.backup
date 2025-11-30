@@ -65,7 +65,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[60vh] min-h-[500px] md:h-[80vh] md:min-h-[700px] lg:h-[95vh] lg:min-h-[800px] overflow-hidden bg-gray-100">
+    <section className="relative h-[95vh] min-h-[800px] overflow-hidden bg-gray-100">
       {/* Background Images with Slider */}
       <div className="absolute inset-0 flex items-center justify-start">
         {images.map((img, index) => (
@@ -89,7 +89,7 @@ const HeroSection = () => {
                 height: '100%',
                 width: '100%',
                 objectFit: 'cover',
-                objectPosition: 'center center'
+                objectPosition: 'center'
               }}
               loading={index === 0 ? "eager" : "lazy"}
             />
@@ -97,25 +97,25 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Darker overlay for better text contrast on mobile */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary/30 md:from-primary/30 md:to-primary/20 z-10" />
+      {/* Lighter overlay for better text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-primary/20 z-10" />
 
       {/* Hero Content - Always on top */}
       <div className="relative container mx-auto px-4 h-full flex items-center z-20">
         <div className="max-w-4xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
             {heroContent.headline}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 font-medium drop-shadow-md">{heroContent.tagline}</p>
+          <p className="text-xl md:text-2xl text-white/95 font-medium drop-shadow-md">{heroContent.tagline}</p>
 
           {/* Slider Indicators */}
-          <div className="flex gap-2 mt-6 md:mt-8">
+          <div className="flex gap-2 mt-8">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`h-1 rounded-full transition-all z-30 relative ${
-                  currentSlide === index ? "w-8 md:w-12 bg-accent" : "w-6 md:w-8 bg-white/40 hover:bg-white/60"
+                  currentSlide === index ? "w-12 bg-accent" : "w-8 bg-white/40 hover:bg-white/60"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -139,11 +139,11 @@ const AboutIntroSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-background">
+    <section className="py-16 px-4 bg-background">
       <div className="container mx-auto text-center max-w-4xl">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4">{aboutContent.title}</h2>
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-accent mb-6">{aboutContent.subtitle}</h3>
-        <p className="text-base md:text-lg text-muted-foreground italic">{aboutContent.tagline}</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">{aboutContent.title}</h2>
+        <h3 className="text-2xl md:text-3xl font-semibold text-accent mb-6">{aboutContent.subtitle}</h3>
+        <p className="text-lg text-muted-foreground italic">{aboutContent.tagline}</p>
       </div>
     </section>
   );
@@ -179,9 +179,9 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-secondary">
+    <section className="py-16 px-4 bg-secondary">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
@@ -190,7 +190,7 @@ const FeaturesSection = () => {
                 className="border-2 hover:border-accent transition-all hover:shadow-lg overflow-hidden"
               >
                 {/* Feature Image */}
-                <div className="h-64 md:h-80 lg:h-96 bg-muted/30 relative overflow-hidden group w-full">
+                <div className="h-[32rem] bg-muted/30 relative overflow-hidden group w-full">
                   <div className="absolute inset-0 flex items-center justify-center p-4">
                     <img
                       src={feature.image}
@@ -203,20 +203,20 @@ const FeaturesSection = () => {
                 </div>
 
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 w-12 h-12 md:w-16 md:h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Icon className="h-6 w-6 md:h-8 md:w-8 text-accent" />
+                  <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Icon className="h-8 w-8 text-accent" />
                   </div>
-                  <CardTitle className="text-lg md:text-xl text-primary">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl text-primary">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-sm md:text-base text-center">{feature.description}</CardDescription>
+                  <CardDescription className="text-base text-center">{feature.description}</CardDescription>
                 </CardContent>
               </Card>
             );
           })}
         </div>
 
-
+        
       </div>
     </section>
   );
@@ -236,18 +236,18 @@ const ConnectSection = () => {
   };
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-primary text-primary-foreground">
+    <section className="py-16 px-4 bg-primary text-primary-foreground">
       <div className="container mx-auto text-center max-w-3xl">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">{contactContent.title}</h2>
-        <p className="text-base md:text-lg mb-6 md:mb-8 opacity-90">{contactContent.description}</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">{contactContent.title}</h2>
+        <p className="text-lg mb-8 opacity-90">{contactContent.description}</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg" variant="secondary" className="gap-2 w-full sm:w-auto">
+          <Button asChild size="lg" variant="secondary" className="gap-2">
             <a href={contactContent.whatsappLink} target="_blank" rel="noreferrer">
               <Mail className="h-5 w-5" />
               Contact Us
             </a>
           </Button>
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 gap-2 w-full sm:w-auto">
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 gap-2">
             <a href={`tel:${contactContent.phoneNumber}`}>
               <Phone className="h-5 w-5" />
               Call Now
