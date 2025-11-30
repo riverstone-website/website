@@ -190,7 +190,7 @@ const FeaturesSection = () => {
                 className="border-2 hover:border-accent transition-all hover:shadow-lg overflow-hidden"
               >
                 {/* Feature Image */}
-                <div className="h-64 md:h-80 lg:h-96 bg-muted/30 relative overflow-hidden group w-full">
+                <div className="h-80 md:h-80 lg:h-96 bg-muted/30 relative overflow-hidden group w-full">
                   <div className="absolute inset-0 flex items-center justify-center p-4">
                     <img
                       src={feature.image}
