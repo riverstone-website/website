@@ -65,7 +65,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[60vh] min-h-[500px] md:h-[80vh] md:min-h-[700px] lg:h-[95vh] lg:min-h-[800px] overflow-hidden bg-gray-100 -mt-20 md:mt-0 pt-20 md:pt-0">
+    <section className="relative h-[55vh] min-h-[450px] md:h-[65vh] md:min-h-[550px] lg:h-[75vh] lg:min-h-[650px] overflow-hidden bg-gray-100 -mt-20 md:mt-0 pt-20 md:pt-0">
       {/* Background Images with Slider */}
       <div className="absolute inset-0 flex items-center justify-start">
         {images.map((img, index) => (
@@ -101,12 +101,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary/30 md:from-primary/30 md:to-primary/20 z-10" />
 
       {/* Hero Content - Always on top */}
-      <div className="relative container mx-auto px-4 h-full flex items-center z-20">
+      <div className="relative container mx-auto px-4 h-full flex items-center z-20 py-8 md:py-12">
         <div className="max-w-4xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 drop-shadow-lg">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 drop-shadow-lg text-left">
             {heroContent.headline}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 font-medium drop-shadow-md">{heroContent.tagline}</p>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 font-medium drop-shadow-md text-left">{heroContent.tagline}</p>
 
           {/* Slider Indicators */}
           <div className="flex gap-2 mt-6 md:mt-8">

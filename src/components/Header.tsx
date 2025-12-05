@@ -62,9 +62,6 @@ const Header = () => {
                   <Link to="/about-fiberglass" className="cursor-pointer">About Fiberglass Planters</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/warranty" className="cursor-pointer">Warranty & Care</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
                   <Link to="/faqs" className="cursor-pointer">FAQs</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -114,13 +111,6 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Fiberglass Planters
-              </Link>
-              <Link
-                to="/warranty"
-                className="block py-2 text-sm font-medium text-foreground"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Warranty & Care
               </Link>
               <Link
                 to="/faqs"

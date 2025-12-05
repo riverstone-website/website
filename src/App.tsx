@@ -9,7 +9,6 @@ import Products from "./pages/Products";
 import AboutFiberglass from "./pages/AboutFiberglass";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
-import Warranty from "./pages/Warranty";
 import FAQs from "./pages/FAQs";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -34,7 +33,6 @@ const App = () => (
           <Route path="/about-fiberglass" element={<AboutFiberglass />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/warranty" element={<Warranty />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
