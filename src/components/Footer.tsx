@@ -8,7 +8,6 @@ const Footer = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Why Choose Us", path: "/why-choose-us" },
     { name: "About Fiberglass Planters", path: "/about-fiberglass" },
-    { name: "Warranty & Care", path: "/warranty" },
     { name: "FAQs", path: "/faqs" },
     { name: "Contact", path: "/contact" },
     { name: "Privacy Policy", path: "/privacy" },
