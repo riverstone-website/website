@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
+import SEO from "@/components/SEO";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -22,6 +24,13 @@ const Products = () => {
   const [activeCategoryKey, setActiveCategoryKey] = useState<string | undefined>(
     productCategories[0]?.key
   );
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const handleImageClick = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   const features = [
     {
@@ -54,6 +63,12 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="FRP Planters & Products - Riverstone Garden Decor Bangalore"
+        description="Browse our premium collection of FRP planters. Lightweight, durable, weather-resistant fiberglass planters in various shapes, sizes & colors. Custom designs available."
+        keywords="FRP planters, fiberglass planters, custom planters, lightweight planters, durable planters, weather resistant planters, garden products, outdoor planters"
+        canonicalUrl="https://www.riverstonegardendecor.com/products"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">
@@ -93,7 +108,10 @@ const Products = () => {
                           key={`${category.key}-${image.src}`}
                           className="overflow-hidden border-2 border-border/60 flex flex-col h-full"
                         >
-                          <div className="w-full h-96 bg-muted flex items-center justify-center p-0">
+                          <div
+                            className="w-full h-96 bg-muted flex items-center justify-center p-0 cursor-pointer"
+                            onClick={() => handleImageClick(index)}
+                          >
                             <img
                               src={image.src}
                               alt={`${category.label} ${index + 1}`}
@@ -143,6 +161,17 @@ const Products = () => {
         </section>
       </main>
       <Footer />
+      {productCategories
+        .filter((category) => category.key === activeCategoryKey)
+        .map((category) => (
+          <ImageLightbox
+            key={category.key}
+            images={category.images}
+            initialIndex={lightboxIndex}
+            isOpen={lightboxOpen}
+            onClose={() => setLightboxOpen(false)}
+          />
+        ))}
     </div>
   );
 };

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(move FRPPlanters.tsx Products.tsx)",
       "Bash(cat:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
