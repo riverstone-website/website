@@ -1,10 +1,17 @@
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const WhyChooseUs = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Why Choose Riverstone Garden Decor - 15+ Years of Excellence"
+        description="Riverstone Garden Decor - Leading FRP planter manufacturer in India with 15+ years of experience. Premium quality, custom designs, and exceptional craftsmanship."
+        keywords="Riverstone Garden Decor, about us, FRP planter manufacturer India, fiberglass planter company, custom planters, quality planters"
+        canonicalUrl="https://www.riverstonegardendecor.com/why-choose-us"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">

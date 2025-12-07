@@ -1,10 +1,17 @@
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const AboutFiberglass = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Fiberglass Planters - FRP Planter Benefits & Features"
+        description="Learn about FRP (Fiber Reinforced Plastic) planters. Discover the benefits, features, and advantages of fiberglass planters for indoor and outdoor use."
+        keywords="fiberglass planters, FRP planters, about FRP, fiberglass planter benefits, planter features, weather resistant planters"
+        canonicalUrl="https://www.riverstonegardendecor.com/about-fiberglass"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">

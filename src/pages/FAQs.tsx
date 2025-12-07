@@ -1,6 +1,7 @@
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import {
   Accordion,
   AccordionContent,
@@ -38,6 +39,12 @@ const FAQs = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="FAQs - Fiberglass Planters Questions Answered | Riverstone"
+        description="Find answers to common questions about FRP planters. Learn about customization, maintenance, durability, and more from Riverstone Garden Decor."
+        keywords="FRP planter FAQs, fiberglass planter questions, planter care, custom planters, planter maintenance"
+        canonicalUrl="https://www.riverstonegardendecor.com/faqs"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">

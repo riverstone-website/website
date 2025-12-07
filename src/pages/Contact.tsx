@@ -1,6 +1,7 @@
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,12 @@ import { Label } from "@/components/ui/label";
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us - Riverstone Garden Decor Bangalore | +91 80882 81908"
+        description="Get in touch with Riverstone Garden Decor for custom FRP planters. Located in Bangalore. Call +91 80882 81908 or email sourav@riverstonegardendecor.com"
+        keywords="contact riverstone, fiberglass planter manufacturer bangalore, FRP planter supplier, custom planters contact"
+        canonicalUrl="https://www.riverstonegardendecor.com/contact"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">

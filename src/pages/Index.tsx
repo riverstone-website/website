@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, Package, Wrench, Phone, Mail } from "lucide-react";
@@ -29,6 +30,12 @@ const featureImage3 = encodeImagePath("/images/home page/3.jpg");
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Riverstone Garden Decor - Premium Fiberglass Planters Manufacturer in Bangalore"
+        description="Leading manufacturer of premium FRP planters in Bangalore. Custom fiberglass planters for homes, offices & outdoor spaces. Lightweight, durable & weather-resistant. Contact +91 80882 81908"
+        keywords="fiberglass planters, FRP planters, Bangalore planters, custom planters, garden planters, outdoor planters, lightweight planters, durable planters, weather resistant planters, Riverstone Garden Decor"
+        canonicalUrl="https://www.riverstonegardendecor.com/"
+      />
       <TopBar />
       <Header />
       <HeroSection />

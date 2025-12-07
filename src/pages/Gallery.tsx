@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
+import SEO from "@/components/SEO";
 import { galleryCategories, type GalleryCategoryKey } from "@/data/galleryData";
 
 const Gallery = () => {
@@ -16,11 +18,24 @@ const Gallery = () => {
   const [activeCategoryKey, setActiveCategoryKey] = useState<GalleryCategoryKey | undefined>(
     defaultKey
   );
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   const activeCategory = categories.find((category) => category.key === activeCategoryKey);
 
+  const handleImageClick = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Gallery - FRP Planter Projects by Riverstone Garden Decor"
+        description="View our stunning gallery of completed FRP planter projects. Custom fiberglass planters for residential, commercial & outdoor spaces in Bangalore."
+        keywords="FRP planter gallery, fiberglass planter projects, custom planters bangalore, garden decor projects, planter designs"
+        canonicalUrl="https://www.riverstonegardendecor.com/gallery"
+      />
       <TopBar />
       <Header />
       <main className="container mx-auto px-4 py-8">
@@ -50,16 +65,19 @@ const Gallery = () => {
         {activeCategory && (
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              {activeCategory.images.map((image) => (
+              {activeCategory.images.map((image, index) => (
                 <div
                   key={image.src}
                   className="flex flex-col bg-secondary rounded-lg overflow-hidden border border-border/60 h-full"
                 >
-                  <div className="aspect-square bg-background relative overflow-hidden w-full">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt} 
-                      className="w-full h-full object-cover object-center" 
+                  <div
+                    className="aspect-square bg-background relative overflow-hidden w-full cursor-pointer"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover object-center"
                       loading="lazy"
                       style={{ minHeight: '100%', minWidth: '100%' }}
                     />
@@ -81,6 +99,14 @@ const Gallery = () => {
         )}
       </main>
       <Footer />
+      {activeCategory && (
+        <ImageLightbox
+          images={activeCategory.images}
+          initialIndex={lightboxIndex}
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </div>
   );
 };
