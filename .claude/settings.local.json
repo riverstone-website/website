@@ -4,7 +4,8 @@
       "Bash(move FRPPlanters.tsx Products.tsx)",
       "Bash(cat:*)",
       "Bash(powershell -Command:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
