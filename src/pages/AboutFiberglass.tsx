@@ -7,7 +7,7 @@ const AboutFiberglass = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Fiberglass Planters - FRP Planter Benefits & Features"
+        title="About Fiberglass Planters - FRP Planter Benefits & Features calwyn"
         description="Learn about FRP (Fiber Reinforced Plastic) planters. Discover the benefits, features, and advantages of fiberglass planters for indoor and outdoor use."
         keywords="fiberglass planters, FRP planters, about FRP, fiberglass planter benefits, planter features, weather resistant planters"
         canonicalUrl="https://www.riverstonegardendecor.com/about-fiberglass"
