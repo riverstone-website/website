@@ -7,7 +7,7 @@ const AboutFiberglass = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Fiberglass Planters - FRP Planter Benefits & Features calwyn"
+        title="About Fiberglass Planters - FRP Planter Benefits & Features"
         description="Learn about FRP (Fiber Reinforced Plastic) planters. Discover the benefits, features, and advantages of fiberglass planters for indoor and outdoor use."
         keywords="fiberglass planters, FRP planters, about FRP, fiberglass planter benefits, planter features, weather resistant planters"
         canonicalUrl="https://www.riverstonegardendecor.com/about-fiberglass"
@@ -16,7 +16,7 @@ const AboutFiberglass = () => {
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-primary">About Fiberglass Planters calwyn</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 text-primary">About Fiberglass Planters</h1>
           <h2 className="text-xl md:text-2xl font-semibold mb-12 text-accent">FRP (Fiber Reinforced Plastic) Planters</h2>
 
           <div className="space-y-12">
