@@ -26,7 +26,13 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-3">
+            {/* Using the favicon as the site logo (placed in public/favicon.png) */}
+            <img
+              src="/favicon.png"
+              alt="Riverstone Garden Decor logo"
+              className="h-8 w-8 md:h-10 md:w-10 object-contain"
+            />
             <div className="text-xl md:text-2xl font-bold text-primary">
               Riverstone <span className="text-accent">Garden Decor</span>
             </div>
